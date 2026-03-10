@@ -87,7 +87,7 @@ export default function Hero() {
                 const targetY = el.getBoundingClientRect().top + window.scrollY - 80;
                 const startY = window.scrollY;
                 const diff = targetY - startY;
-                const duration = 500;
+                const duration = 650;
                 let start: number | null = null;
                 function ease(t: number) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2; }
                 function step(ts: number) {
