@@ -11,6 +11,29 @@ const navLinks = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
+function smoothScrollTo(targetId: string) {
+  const el = document.querySelector(targetId);
+  if (!el) return;
+  const targetY = el.getBoundingClientRect().top + window.scrollY - 80;
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  const duration = Math.min(800, Math.max(400, Math.abs(diff) * 0.3));
+  let start: number | null = null;
+
+  function easeInOutCubic(t: number) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function step(timestamp: number) {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,6 +77,10 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo(link.href);
+                  }}
                   className="text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold transition-colors duration-300"
                 >
                   {link.label}
@@ -64,22 +91,22 @@ export default function Navigation() {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden flex flex-col gap-1.5 p-2"
+              className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[7px] p-2"
               aria-label="Toggle menu"
             >
               <span
-                className={`w-6 h-px bg-cream transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-[3.5px]" : ""
+                className={`block w-6 h-[2px] bg-cream transition-all duration-300 origin-center ${
+                  mobileOpen ? "rotate-45 translate-y-[9px]" : ""
                 }`}
               />
               <span
-                className={`w-6 h-px bg-cream transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
+                className={`block w-6 h-[2px] bg-cream transition-all duration-300 ${
+                  mobileOpen ? "opacity-0 scale-0" : ""
                 }`}
               />
               <span
-                className={`w-6 h-px bg-cream transition-all duration-300 ${
-                  mobileOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+                className={`block w-6 h-[2px] bg-cream transition-all duration-300 origin-center ${
+                  mobileOpen ? "-rotate-45 -translate-y-[9px]" : ""
                 }`}
               />
             </button>
@@ -104,7 +131,11 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileOpen(false);
+                    setTimeout(() => smoothScrollTo(link.href), 300);
+                  }}
                   className="font-serif text-2xl text-cream/80 hover:text-gold transition-colors"
                 >
                   {link.label}

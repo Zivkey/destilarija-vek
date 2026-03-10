@@ -14,7 +14,16 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+/* Prevent mobile keyboard scroll jump */
+input, select, textarea {
+  scroll-margin-top: 200px;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 body {

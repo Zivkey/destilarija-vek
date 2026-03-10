@@ -80,6 +80,25 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8 }}
             href="#o-nama"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.querySelector("#o-nama");
+              if (el) {
+                const targetY = el.getBoundingClientRect().top + window.scrollY - 80;
+                const startY = window.scrollY;
+                const diff = targetY - startY;
+                const duration = 800;
+                let start: number | null = null;
+                function ease(t: number) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2; }
+                function step(ts: number) {
+                  if (!start) start = ts;
+                  const p = Math.min((ts - start) / duration, 1);
+                  window.scrollTo(0, startY + diff * ease(p));
+                  if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+              }
+            }}
             className="mt-12 px-8 py-3 border border-gold/40 text-gold text-xs tracking-[0.3em] uppercase hover:bg-gold hover:text-dark transition-all duration-500"
           >
             Otkrijte više
