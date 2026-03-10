@@ -1,9 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) return;
+
+    const handleFocus = (e: FocusEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === "INPUT" || target.tagName === "SELECT" || target.tagName === "TEXTAREA") {
+        const scrollY = window.scrollY;
+        requestAnimationFrame(() => {
+          if (Math.abs(window.scrollY - scrollY) > 50) {
+            window.scrollTo({ top: scrollY, behavior: "instant" as ScrollBehavior });
+          }
+        });
+      }
+    };
+
+    form.addEventListener("focusin", handleFocus);
+    return () => form.removeEventListener("focusin", handleFocus);
+  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -96,7 +117,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
                   Ime i prezime
