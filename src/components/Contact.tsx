@@ -89,8 +89,13 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Form side - no motion wrapper to prevent mobile keyboard issues */}
-          <div>
+          {/* Form side */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
@@ -200,7 +205,7 @@ export default function Contact() {
                 Pošaljite porudžbinu
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
