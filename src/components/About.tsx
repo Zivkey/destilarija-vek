@@ -79,21 +79,21 @@ export default function About() {
 
             <div className="mt-10 flex items-center gap-6">
               <div className="text-center">
-                <p className="font-serif text-3xl text-gold">5+</p>
+                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>5+</p>
                 <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
                   Godina starenja
                 </p>
               </div>
               <div className="w-px h-12 bg-gold/20" />
               <div className="text-center">
-                <p className="font-serif text-3xl text-gold">100%</p>
+                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>100%</p>
                 <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
                   Prirodno
                 </p>
               </div>
               <div className="w-px h-12 bg-gold/20" />
               <div className="text-center">
-                <p className="font-serif text-3xl text-gold">1</p>
+                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>1</p>
                 <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
                   Bačva po flaši
                 </p>

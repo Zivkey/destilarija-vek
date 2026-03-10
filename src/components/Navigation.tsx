@@ -17,7 +17,7 @@ function smoothScrollTo(targetId: string) {
   const targetY = el.getBoundingClientRect().top + window.scrollY - 80;
   const startY = window.scrollY;
   const diff = targetY - startY;
-  const duration = Math.min(800, Math.max(400, Math.abs(diff) * 0.3));
+  const duration = Math.min(500, Math.max(250, Math.abs(diff) * 0.15));
   let start: number | null = null;
 
   function easeInOutCubic(t: number) {

@@ -105,7 +105,7 @@ export default function Products() {
 
                 <div className="gold-line mx-auto mb-6" />
 
-                <p className="font-serif text-2xl text-gold">
+                <p className="font-serif text-2xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>
                   {product.price}
                 </p>
               </div>

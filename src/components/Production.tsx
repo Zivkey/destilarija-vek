@@ -137,7 +137,7 @@ export default function Production() {
                 className="flex gap-6 group"
               >
                 <div className="flex-shrink-0">
-                  <span className="font-serif text-3xl text-gold/30 group-hover:text-gold transition-colors duration-500">
+                  <span className="font-serif text-3xl text-gold/30 group-hover:text-gold transition-colors duration-500" style={{ fontFeatureSettings: '"lnum"' }}>
                     {item.step}
                   </span>
                 </div>
