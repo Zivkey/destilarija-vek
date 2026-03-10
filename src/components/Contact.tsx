@@ -10,20 +10,19 @@ export default function Contact() {
     const form = formRef.current;
     if (!form) return;
 
-    const handleFocus = (e: FocusEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === "INPUT" || target.tagName === "SELECT" || target.tagName === "TEXTAREA") {
-        const scrollY = window.scrollY;
-        requestAnimationFrame(() => {
-          if (Math.abs(window.scrollY - scrollY) > 50) {
-            window.scrollTo({ top: scrollY, behavior: "instant" as ScrollBehavior });
-          }
-        });
-      }
-    };
+    const inputs = form.querySelectorAll("input, select, textarea");
+    const handlers: Array<() => void> = [];
 
-    form.addEventListener("focusin", handleFocus);
-    return () => form.removeEventListener("focusin", handleFocus);
+    inputs.forEach((input) => {
+      const el = input as HTMLElement;
+      const handler = () => {
+        el.focus({ preventScroll: true });
+      };
+      el.addEventListener("touchstart", handler, { passive: true });
+      handlers.push(() => el.removeEventListener("touchstart", handler));
+    });
+
+    return () => handlers.forEach((cleanup) => cleanup());
   }, []);
   const [formData, setFormData] = useState({
     name: "",
