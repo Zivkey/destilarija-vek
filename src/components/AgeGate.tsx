@@ -1,25 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useAgeVerified } from "./AgeContext";
 
 export default function AgeGate() {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const verified = sessionStorage.getItem("age-verified");
-    if (!verified) setShow(true);
-  }, []);
+  const verified = useAgeVerified();
 
   const handleConfirm = () => {
     sessionStorage.setItem("age-verified", "true");
-    setShow(false);
+    window.dispatchEvent(new Event("age-verified"));
   };
 
   return (
     <AnimatePresence>
-      {show && (
+      {!verified && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

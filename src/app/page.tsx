@@ -1,3 +1,4 @@
+import { AgeProvider } from "@/components/AgeContext";
 import AgeGate from "@/components/AgeGate";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
@@ -10,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <AgeProvider>
       <AgeGate />
       <Navigation />
       <main>
@@ -22,6 +23,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </AgeProvider>
   );
 }
