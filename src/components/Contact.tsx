@@ -1,29 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 
 export default function Contact() {
-  const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    const form = formRef.current;
-    if (!form) return;
-
-    const inputs = form.querySelectorAll("input, select, textarea");
-    const handlers: Array<() => void> = [];
-
-    inputs.forEach((input) => {
-      const el = input as HTMLElement;
-      const handler = () => {
-        el.focus({ preventScroll: true });
-      };
-      el.addEventListener("touchstart", handler, { passive: true });
-      handlers.push(() => el.removeEventListener("touchstart", handler));
-    });
-
-    return () => handlers.forEach((cleanup) => cleanup());
-  }, []);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -109,14 +89,9 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Form side */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+          {/* Form side - no motion wrapper to prevent mobile keyboard issues */}
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
                   Ime i prezime
@@ -225,7 +200,7 @@ export default function Contact() {
                 Pošaljite porudžbinu
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
