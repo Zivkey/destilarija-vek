@@ -11,13 +11,15 @@ const navLinks = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
-function smoothScrollTo(targetId: string) {
+function smoothScrollTo(targetId: string, slow = false) {
   const el = document.querySelector(targetId);
   if (!el) return;
   const targetY = el.getBoundingClientRect().top + window.scrollY - 80;
   const startY = window.scrollY;
   const diff = targetY - startY;
-  const duration = Math.min(650, Math.max(350, Math.abs(diff) * 0.2));
+  const duration = slow
+    ? Math.min(1000, Math.max(600, Math.abs(diff) * 0.35))
+    : Math.min(650, Math.max(350, Math.abs(diff) * 0.2));
   let start: number | null = null;
 
   function easeInOutCubic(t: number) {
@@ -131,10 +133,15 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
+                  whileTap={{ color: "#c99542" }}
                   onClick={(e) => {
                     e.preventDefault();
-                    setMobileOpen(false);
-                    setTimeout(() => smoothScrollTo(link.href), 300);
+                    const target = e.currentTarget;
+                    target.style.color = "#c99542";
+                    setTimeout(() => {
+                      setMobileOpen(false);
+                      setTimeout(() => smoothScrollTo(link.href, true), 400);
+                    }, 600);
                   }}
                   className="font-serif text-2xl text-cream/80 hover:text-gold transition-colors"
                 >
