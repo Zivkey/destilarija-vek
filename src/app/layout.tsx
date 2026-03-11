@@ -14,15 +14,41 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
+const SITE_URL = "https://destilerijavek.rs";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Destilerija VEK | Premium Srpska Rakija",
   description:
     "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
-  keywords: "rakija, šljivovica, premium, destilerija, Srbija, VEK, hrastove bačve",
+  keywords:
+    "rakija, šljivovica, premium, destilerija, Srbija, VEK, hrastove bačve",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     title: "Destilerija VEK | Premium Srpska Rakija",
-    description: "Pijemo danas, pamtimo vekovima.",
+    description:
+      "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
+    url: SITE_URL,
+    siteName: "Destilerija VEK",
+    locale: "sr_RS",
     type: "website",
+    images: [
+      {
+        url: "/images/onama-01-full.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Destilerija VEK - Premium Srpska Rakija",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Destilerija VEK | Premium Srpska Rakija",
+    description:
+      "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
+    images: ["/images/onama-01-full.jpg"],
   },
 };
 
