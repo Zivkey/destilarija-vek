@@ -37,11 +37,32 @@ function smoothScrollTo(targetId: string) {
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(`#${id}`);
+        },
+        { rootMargin: "-40% 0px -40% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   return (
@@ -81,7 +102,11 @@ export default function Navigation() {
                     e.preventDefault();
                     smoothScrollTo(link.href);
                   }}
-                  className="text-xs tracking-[0.2em] uppercase text-cream/70 hover:text-gold transition-colors duration-300"
+                  className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+                    activeSection === link.href
+                      ? "text-gold"
+                      : "text-cream/70 hover:text-gold"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -141,7 +166,11 @@ export default function Navigation() {
                       setTimeout(() => smoothScrollTo(link.href), 400);
                     }, 100);
                   }}
-                  className="font-serif text-2xl text-cream/80 hover:text-gold transition-colors"
+                  className={`font-serif text-2xl transition-colors ${
+                    activeSection === link.href
+                      ? "text-gold"
+                      : "text-cream/80 hover:text-gold"
+                  }`}
                 >
                   {link.label}
                 </motion.a>
