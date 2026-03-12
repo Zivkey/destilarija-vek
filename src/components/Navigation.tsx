@@ -83,8 +83,8 @@ export default function Navigation() {
               <Image
                 src="/images/logo-vek.png"
                 alt="VEK"
-                width={64}
-                height={64}
+                width={80}
+                height={80}
                 className="brightness-0 invert"
               />
               <span className="font-serif text-lg tracking-[0.2em] text-cream hidden sm:block">

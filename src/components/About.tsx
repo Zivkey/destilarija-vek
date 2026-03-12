@@ -40,8 +40,8 @@ export default function About() {
             >
               <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/onama-01-full.jpg"
-                  alt="Destilerija VEK - Porodica"
+                  src="/images/onama-porodica.jpg"
+                  alt="Destilerija VEK"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 55vw, 28vw"
@@ -56,8 +56,8 @@ export default function About() {
                   className="relative aspect-square overflow-hidden"
                 >
                   <Image
-                    src="/images/onama-kutija.jpg"
-                    alt="VEK premium kutija"
+                    src="/images/onama-casa-zavesa.jpg"
+                    alt="VEK rakija - elegancija"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 25vw, 14vw"
@@ -71,8 +71,8 @@ export default function About() {
                   className="relative aspect-[3/4] overflow-hidden"
                 >
                   <Image
-                    src="/images/onama-porodica.jpg"
-                    alt="Destilerija VEK"
+                    src="/images/onama-01-full.jpg"
+                    alt="Destilerija VEK - Porodica"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 35vw, 18vw"
@@ -169,8 +169,8 @@ export default function About() {
                   className="relative aspect-[3/4] overflow-hidden"
                 >
                   <Image
-                    src="/images/onama-casa-crvena.jpg"
-                    alt="VEK rakija - čaša"
+                    src="/images/onama-kutija.jpg"
+                    alt="VEK premium kutija"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 35vw, 18vw"
@@ -185,8 +185,8 @@ export default function About() {
                   className="relative aspect-square overflow-hidden"
                 >
                   <Image
-                    src="/images/onama-casa-zavesa.jpg"
-                    alt="VEK rakija - elegancija"
+                    src="/images/mala.jpg"
+                    alt="VEK rakija - štikla"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 25vw, 14vw"
@@ -196,8 +196,8 @@ export default function About() {
               </div>
               <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/onama-casa-senka.jpg"
-                  alt="VEK rakija - degustacija"
+                  src="/images/onama-casa-zavesa.jpg"
+                  alt="VEK rakija - elegancija"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 55vw, 28vw"

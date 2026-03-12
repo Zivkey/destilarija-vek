@@ -4,25 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
-const plumVarieties = [
-  {
-    name: "Crvena Ranka",
-    desc: "Nežna slatkoća i bogat miris",
-  },
-  {
-    name: "Čačanska Rodna",
-    desc: "Obilnost ukusa i postojanost",
-  },
-  {
-    name: "Čačanska Lepotica",
-    desc: "Elegancija i fina aroma",
-  },
-  {
-    name: "Valjevka",
-    desc: "Punoća i karakteristična čvrstina",
-  },
-];
-
 export default function Production() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -57,12 +38,12 @@ export default function Production() {
       </div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Text - left column */}
+        {/* Part 1: Text left, plum image right */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1 }}
           >
             <p className="text-cream/80 leading-relaxed mb-6 text-base">
               Na prostranim padinama južne Srbije negujemo sopstvene zasade šljiva – crvene
@@ -83,11 +64,47 @@ export default function Production() {
             </p>
           </motion.div>
 
-          {/* Text - right column */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative aspect-[4/3] overflow-hidden"
+          >
+            <Image
+              src="/images/proizvodnja-sljive.jpg"
+              alt="Šljive na grani"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+          </motion.div>
+        </div>
+
+        {/* Part 2: Production image left, text right */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="relative aspect-[4/3] overflow-hidden"
+          >
+            <Image
+              src="/images/proizvodnja01-full.jpg"
+              alt="Destilerija VEK - Proizvodnja"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             <p className="text-cream/80 leading-relaxed mb-6 text-base">
               Destilacija se vrši dvostrukim pečenjem, umereno i pažljivo, na tradicionalan
