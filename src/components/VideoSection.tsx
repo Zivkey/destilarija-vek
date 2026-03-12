@@ -136,7 +136,7 @@ export default function VideoSection() {
             }}
             onClick={handlePlayPause}
           >
-            <source src="/videos/hero.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dygonsywt/video/upload/v1773355240/hero_qz5egn.mp4" type="video/mp4" />
           </video>
 
           {/* Big play button - shown before first play */}
