@@ -154,32 +154,61 @@ export default function Products() {
         >
           <div className="gold-line mx-auto mb-10" />
           <p className="text-cream/60 text-sm leading-relaxed mb-6">
-            Dostupna na zvaničnom sajtu destilerije i u odabranim restoranima u Beogradu.
+            Dostupna na zvaničnom sajtu destilerije i u odabranim restoranima u Nišu.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-10 sm:gap-16">
             <a
               href="https://egoconceptstore.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold-light transition-colors text-sm tracking-wider underline underline-offset-4"
+              className="flex flex-col items-center gap-3 group"
             >
-              &ldquo;EGO&rdquo; concept store — Niš
+              <Image
+                src="/images/logo-ego.png"
+                alt="EGO concept store"
+                width={100}
+                height={40}
+                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
+              />
+              <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
+                EGO Concept Store
+              </span>
             </a>
             <a
               href="https://www.restoranstambolijski.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold-light transition-colors text-sm tracking-wider underline underline-offset-4"
+              className="flex flex-col items-center gap-3 group"
             >
-              Restoran &ldquo;Stambolijski&rdquo; — Niš
+              <Image
+                src="/images/logo-stambolijski.png"
+                alt="Restoran Stambolijski"
+                width={40}
+                height={40}
+                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+              />
+              <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
+                Restoran Stambolijski
+              </span>
             </a>
             <a
               href="https://bocconcino.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold-light transition-colors text-sm tracking-wider underline underline-offset-4"
+              className="flex flex-col items-center gap-3 group"
             >
-              Restoran &ldquo;Bocconcino&rdquo; — Niš
+              <Image
+                src="/images/logo-bocconcino.png"
+                alt="Restoran Bocconcino"
+                width={120}
+                height={30}
+                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
+              />
+              <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
+                Restoran Bocconcino
+              </span>
             </a>
           </div>
         </motion.div>
