@@ -153,8 +153,9 @@ export default function Products() {
           className="mt-20 max-w-3xl mx-auto text-center"
         >
           <div className="gold-line mx-auto mb-10" />
-          <p className="text-cream/60 text-sm leading-relaxed mb-6">
-            Dostupna na zvaničnom sajtu destilerije i u odabranim restoranima u Nišu.
+          <p className="text-cream/60 text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+            Premium rakija destilerije VEK biće dostupna na zvaničnom sajtu destilerije,
+            kao i u sledećim prodavnicama i restoranima u Nišu.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-10 sm:gap-16">
             <a
