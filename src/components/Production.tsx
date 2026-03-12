@@ -42,8 +42,8 @@ export default function Production() {
         {/* Part 1: Text left, plum image right */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1 }}
           >
             <p className="text-cream/80 leading-relaxed mb-6 text-base">
@@ -66,8 +66,8 @@ export default function Production() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
             className="relative aspect-[4/3] overflow-hidden"
           >
@@ -75,6 +75,7 @@ export default function Production() {
               src="/images/proizvodnja-sljive.jpg"
               alt="Zrele šljive na grani spremne za berbu i destilaciju rakije"
               fill
+              quality={85}
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -85,8 +86,8 @@ export default function Production() {
         {/* Part 2: Production image left, text right (on mobile: text first, image second) */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
             className="relative aspect-[4/3] overflow-hidden order-2 lg:order-1"
@@ -95,6 +96,7 @@ export default function Production() {
               src="/images/proizvodnja01-full.jpg"
               alt="Proces destilacije rakije u bakarnim kazanima destilerije VEK"
               fill
+              quality={85}
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -102,8 +104,8 @@ export default function Production() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
             className="order-1 lg:order-2"

@@ -13,10 +13,30 @@ const heroImages = [
 
 const SLIDE_DURATION = 6000;
 
+// Track swipe direction: 1 = next (left), -1 = prev (right)
+const slideVariants = {
+  enter: (direction: number) => ({
+    opacity: 0,
+    scale: 1.08,
+    x: direction > 0 ? "4%" : "-4%",
+  }),
+  center: {
+    opacity: 1,
+    scale: 1,
+    x: "0%",
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    scale: 0.95,
+    x: direction > 0 ? "-4%" : "4%",
+  }),
+};
+
 export default function Hero() {
   const verified = useAgeVerified();
   const ref = useRef(null);
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout>(null);
   const startTimeRef = useRef<number>(Date.now());
@@ -30,19 +50,26 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
-  const goTo = useCallback((index: number) => {
+  const goTo = useCallback((index: number, dir?: number) => {
+    setDirection(dir ?? (index > current ? 1 : -1));
     setCurrent(index);
+    setProgress(0);
+    startTimeRef.current = Date.now();
+  }, [current]);
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % heroImages.length);
     setProgress(0);
     startTimeRef.current = Date.now();
   }, []);
 
-  const next = useCallback(() => {
-    goTo((current + 1) % heroImages.length);
-  }, [current, goTo]);
-
   const prev = useCallback(() => {
-    goTo((current - 1 + heroImages.length) % heroImages.length);
-  }, [current, goTo]);
+    setDirection(-1);
+    setCurrent((c) => (c - 1 + heroImages.length) % heroImages.length);
+    setProgress(0);
+    startTimeRef.current = Date.now();
+  }, []);
 
   // Touch swipe
   const touchStartX = useRef(0);
@@ -60,6 +87,7 @@ export default function Hero() {
   // Auto-advance
   useEffect(() => {
     intervalRef.current = setInterval(() => {
+      setDirection(1);
       setCurrent((c) => {
         const nextIdx = (c + 1) % heroImages.length;
         setProgress(0);
@@ -88,13 +116,15 @@ export default function Hero() {
     <section ref={ref} className="relative h-screen overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       {/* Background images with crossfade */}
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="popLayout" custom={direction}>
           <motion.div
             key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
             className="absolute inset-0"
           >
             <Image
@@ -102,7 +132,7 @@ export default function Hero() {
               alt="Destilerija VEK - premium srpska šljivovica i voćnjaci"
               fill
               priority
-              quality={90}
+              unoptimized
               className="object-cover"
               sizes="100vw"
             />
@@ -152,7 +182,7 @@ export default function Hero() {
                 requestAnimationFrame(step);
               }
             }}
-            className="mt-12 px-8 py-3 border border-gold/40 text-gold text-xs tracking-[0.3em] uppercase hover:bg-gold hover:text-dark transition-all duration-500"
+            className="mt-12 px-8 py-3 border border-gold/40 text-gold text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gold hover:text-dark transition-all duration-500"
           >
             Otkrijte više
           </motion.a>

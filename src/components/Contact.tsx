@@ -28,8 +28,8 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Info side */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -91,8 +91,8 @@ export default function Contact() {
 
           {/* Form side */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
@@ -112,7 +112,7 @@ export default function Contact() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Email
@@ -158,7 +158,7 @@ export default function Contact() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Proizvod

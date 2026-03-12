@@ -33,8 +33,8 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-16 lg:mb-32">
             {/* Images - two staggered */}
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1 }}
               className="flex gap-4 items-end"
             >
@@ -43,8 +43,9 @@ export default function About() {
                   src="/images/onama-porodica.jpg"
                   alt="Porodica Destilerije VEK u voćnjaku šljiva"
                   fill
+                  quality={85}
                   className="object-cover"
-                  sizes="(max-width: 1024px) 55vw, 28vw"
+                  sizes="(max-width: 1024px) 60vw, 28vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
               </div>
@@ -59,8 +60,9 @@ export default function About() {
                     src="/images/onama-casa-zavesa.jpg"
                     alt="Čaša premium šljivovice VEK uz elegantnu zavesu"
                     fill
+                    quality={85}
                     className="object-cover"
-                    sizes="(max-width: 1024px) 25vw, 14vw"
+                    sizes="(max-width: 1024px) 38vw, 14vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
                 </motion.div>
@@ -74,8 +76,9 @@ export default function About() {
                     src="/images/onama-01-full.jpg"
                     alt="Porodica iza destilerije VEK - tradicija i posvećenost"
                     fill
+                    quality={85}
                     className="object-cover"
-                    sizes="(max-width: 1024px) 35vw, 18vw"
+                    sizes="(max-width: 1024px) 38vw, 18vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
                 </motion.div>
@@ -84,8 +87,8 @@ export default function About() {
 
             {/* Text - first half */}
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
             >
               <p className="text-cream/80 leading-relaxed mb-6 text-base">
@@ -114,8 +117,8 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Text - second half */}
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
               className="order-2 lg:order-1"
@@ -154,8 +157,8 @@ export default function About() {
 
             {/* Images - puzzle layout */}
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
               className="flex gap-4 items-end order-1 lg:order-2"
@@ -172,8 +175,9 @@ export default function About() {
                     src="/images/onama-kutija.jpg"
                     alt="Premium poklon kutija za VEK šljivovicu"
                     fill
+                    quality={85}
                     className="object-cover"
-                    sizes="(max-width: 1024px) 35vw, 18vw"
+                    sizes="(max-width: 1024px) 38vw, 18vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
                 </motion.div>
@@ -188,8 +192,9 @@ export default function About() {
                     src="/images/mala.jpg"
                     alt="Mala boca premium rakije VEK šljivovice"
                     fill
+                    quality={85}
                     className="object-cover"
-                    sizes="(max-width: 1024px) 25vw, 14vw"
+                    sizes="(max-width: 1024px) 38vw, 14vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
                 </motion.div>
@@ -199,8 +204,9 @@ export default function About() {
                   src="/images/onama-casa-zavesa.jpg"
                   alt="Čaša premium šljivovice VEK uz elegantnu zavesu"
                   fill
+                  quality={85}
                   className="object-cover"
-                  sizes="(max-width: 1024px) 55vw, 28vw"
+                  sizes="(max-width: 1024px) 60vw, 28vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
               </div>

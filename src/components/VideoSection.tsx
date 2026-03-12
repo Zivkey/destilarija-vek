@@ -136,7 +136,7 @@ export default function VideoSection() {
             }}
             onClick={handlePlayPause}
           >
-            <source src="/videos/vek-video.mp4" type="video/mp4" />
+            <source src="/videos/hero.mp4" type="video/mp4" />
           </video>
 
           {/* Big play button - shown before first play */}
