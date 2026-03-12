@@ -82,7 +82,7 @@ export default function Navigation() {
             <a href="#" className="flex items-center gap-3">
               <Image
                 src="/images/logo-vek.png"
-                alt="VEK"
+                alt="Destilerija VEK logo"
                 width={80}
                 height={80}
                 className="brightness-0 invert"

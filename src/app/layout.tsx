@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Destilerija VEK | Premium Srpska Rakija",
     description:

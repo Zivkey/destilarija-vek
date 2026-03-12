@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="flex items-center">
             <Image
               src="/images/logo.png"
-              alt="VEK"
+              alt="Destilerija VEK logo"
               width={100}
               height={100}
               className="brightness-0 invert"

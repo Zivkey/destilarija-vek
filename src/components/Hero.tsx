@@ -99,7 +99,7 @@ export default function Hero() {
           >
             <Image
               src={heroImages[current]}
-              alt="Destilerija VEK"
+              alt="Destilerija VEK - premium srpska šljivovica i voćnjaci"
               fill
               priority
               quality={90}

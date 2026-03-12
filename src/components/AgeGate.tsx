@@ -31,7 +31,7 @@ export default function AgeGate() {
           >
             <Image
               src="/images/logo-vek.png"
-              alt="VEK Logo"
+              alt="Destilerija VEK logo"
               width={80}
               height={80}
               className="mx-auto mb-8 brightness-0 invert"

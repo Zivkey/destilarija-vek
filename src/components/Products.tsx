@@ -31,7 +31,7 @@ export default function Products() {
       <div className="relative h-[50vh] mb-24 overflow-hidden">
         <Image
           src="/images/onama-casa-senka.jpg"
-          alt="VEK Premium Rakija"
+          alt="Čaša premium rakije šljivovice u dramatičnom osvetljenju"
           fill
           quality={90}
           className="object-cover"
@@ -100,7 +100,7 @@ export default function Products() {
                 >
                   <Image
                     src={product.image}
-                    alt={`VEK ${product.name}`}
+                    alt={`Boca VEK ${product.name} premium šljivovice 0.7L`}
                     width={600}
                     height={800}
                     className="w-full h-auto drop-shadow-2xl max-h-[50vh] object-contain"

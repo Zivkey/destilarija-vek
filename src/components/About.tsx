@@ -41,7 +41,7 @@ export default function About() {
               <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
                 <Image
                   src="/images/onama-porodica.jpg"
-                  alt="Destilerija VEK"
+                  alt="Porodica Destilerije VEK u voćnjaku šljiva"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 55vw, 28vw"
@@ -57,7 +57,7 @@ export default function About() {
                 >
                   <Image
                     src="/images/onama-casa-zavesa.jpg"
-                    alt="VEK rakija - elegancija"
+                    alt="Čaša premium šljivovice VEK uz elegantnu zavesu"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 25vw, 14vw"
@@ -72,7 +72,7 @@ export default function About() {
                 >
                   <Image
                     src="/images/onama-01-full.jpg"
-                    alt="Destilerija VEK - Porodica"
+                    alt="Porodica iza destilerije VEK - tradicija i posvećenost"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 35vw, 18vw"
@@ -170,7 +170,7 @@ export default function About() {
                 >
                   <Image
                     src="/images/onama-kutija.jpg"
-                    alt="VEK premium kutija"
+                    alt="Premium poklon kutija za VEK šljivovicu"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 35vw, 18vw"
@@ -186,7 +186,7 @@ export default function About() {
                 >
                   <Image
                     src="/images/mala.jpg"
-                    alt="VEK rakija - štikla"
+                    alt="Mala boca premium rakije VEK šljivovice"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 25vw, 14vw"
@@ -197,7 +197,7 @@ export default function About() {
               <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
                 <Image
                   src="/images/onama-casa-zavesa.jpg"
-                  alt="VEK rakija - elegancija"
+                  alt="Čaša premium šljivovice VEK uz elegantnu zavesu"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 55vw, 28vw"

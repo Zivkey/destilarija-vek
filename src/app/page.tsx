@@ -23,6 +23,8 @@ const jsonLd = {
   logo: "https://destilerijavek.rs/images/logo.png",
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Niš",
+    addressRegion: "Nišavski okrug",
     addressCountry: "RS",
   },
   sameAs: [
@@ -32,11 +34,30 @@ const jsonLd = {
   makesOffer: [
     {
       "@type": "Offer",
+      priceCurrency: "RSD",
+      price: "6500",
+      availability: "https://schema.org/PreOrder",
+      itemOffered: {
+        "@type": "Product",
+        name: "VEK Standard Šljivovica",
+        description:
+          "Premium šljivovica starana minimum pet godina u hrastovim bačvama. Single barrel, 0.7L.",
+        brand: { "@type": "Brand", name: "Destilerija VEK" },
+        image: "https://destilerijavek.rs/images/manja.jpg",
+      },
+    },
+    {
+      "@type": "Offer",
+      priceCurrency: "RSD",
+      price: "9500",
+      availability: "https://schema.org/PreOrder",
       itemOffered: {
         "@type": "Product",
         name: "VEK Premium Šljivovica",
         description:
-          "Premium šljivovica starana u hrastovim bačvama minimum pet godina.",
+          "Premium šljivovica starana minimum pet godina u pažljivo odabranim hrastovim buradima. Single barrel, 0.7L.",
+        brand: { "@type": "Brand", name: "Destilerija VEK" },
+        image: "https://destilerijavek.rs/images/veca.jpg",
       },
     },
   ],

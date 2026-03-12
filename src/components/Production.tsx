@@ -14,7 +14,7 @@ export default function Production() {
       <div className="relative h-[50vh] mb-24 overflow-hidden">
         <Image
           src="/images/proizvodnja02-full.jpg"
-          alt="Šljivik"
+          alt="Šljivik destilerije VEK - voćnjaci šljiva u južnoj Srbiji"
           fill
           quality={90}
           className="object-cover"
@@ -73,7 +73,7 @@ export default function Production() {
           >
             <Image
               src="/images/proizvodnja-sljive.jpg"
-              alt="Šljive na grani"
+              alt="Zrele šljive na grani spremne za berbu i destilaciju rakije"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -93,7 +93,7 @@ export default function Production() {
           >
             <Image
               src="/images/proizvodnja01-full.jpg"
-              alt="Destilerija VEK - Proizvodnja"
+              alt="Proces destilacije rakije u bakarnim kazanima destilerije VEK"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
