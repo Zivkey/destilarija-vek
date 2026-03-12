@@ -16,6 +16,7 @@ export default function Production() {
           src="/images/proizvodnja02-full.jpg"
           alt="Šljivik"
           fill
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />
@@ -81,14 +82,14 @@ export default function Production() {
           </motion.div>
         </div>
 
-        {/* Part 2: Production image left, text right */}
+        {/* Part 2: Production image left, text right (on mobile: text first, image second) */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative aspect-[4/3] overflow-hidden"
+            className="relative aspect-[4/3] overflow-hidden order-2 lg:order-1"
           >
             <Image
               src="/images/proizvodnja01-full.jpg"
@@ -105,6 +106,7 @@ export default function Production() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
+            className="order-1 lg:order-2"
           >
             <p className="text-cream/80 leading-relaxed mb-6 text-base">
               Destilacija se vrši dvostrukim pečenjem, umereno i pažljivo, na tradicionalan

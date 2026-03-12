@@ -30,7 +30,7 @@ export default function About() {
 
         <div ref={ref}>
           {/* Part 1: Images left, text right */}
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-16 lg:mb-32">
             {/* Images - two staggered */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}

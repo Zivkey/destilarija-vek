@@ -44,6 +44,19 @@ export default function Hero() {
     goTo((current - 1 + heroImages.length) % heroImages.length);
   }, [current, goTo]);
 
+  // Touch swipe
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+  };
+
   // Auto-advance
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -72,7 +85,7 @@ export default function Hero() {
   }, [current]);
 
   return (
-    <section ref={ref} className="relative h-screen overflow-hidden">
+    <section ref={ref} className="relative h-screen overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       {/* Background images with crossfade */}
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <AnimatePresence mode="popLayout">
@@ -89,6 +102,7 @@ export default function Hero() {
               alt="Destilerija VEK"
               fill
               priority
+              quality={90}
               className="object-cover"
               sizes="100vw"
             />

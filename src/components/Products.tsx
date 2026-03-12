@@ -33,6 +33,7 @@ export default function Products() {
           src="/images/onama-casa-senka.jpg"
           alt="VEK Premium Rakija"
           fill
+          quality={90}
           className="object-cover"
           sizes="100vw"
         />
@@ -102,8 +103,8 @@ export default function Products() {
                     alt={`VEK ${product.name}`}
                     width={600}
                     height={800}
-                    className="w-full h-auto drop-shadow-2xl"
-                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="w-full h-auto drop-shadow-2xl max-h-[50vh] object-contain"
+                    sizes="(max-width: 768px) 100vw, 35vw"
                   />
                 </motion.div>
               </div>
