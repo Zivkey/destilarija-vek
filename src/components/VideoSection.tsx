@@ -95,7 +95,7 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-32 lg:py-40">
+    <section ref={ref} className="relative py-16 lg:py-20">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -136,7 +136,7 @@ export default function VideoSection() {
             }}
             onClick={handlePlayPause}
           >
-            <source src="/videos/hero.mp4" type="video/mp4" />
+            <source src="/videos/vek-video.mp4" type="video/mp4" />
           </video>
 
           {/* Big play button - shown before first play */}
@@ -145,9 +145,9 @@ export default function VideoSection() {
               className="absolute inset-0 flex items-center justify-center bg-dark/30 cursor-pointer"
               onClick={handlePlayPause}
             >
-              <div className="w-20 h-20 rounded-full border-2 border-gold/60 flex items-center justify-center hover:border-gold hover:scale-110 transition-all duration-500">
+              <div className="w-24 h-24 rounded-full border-2 border-gold flex items-center justify-center hover:border-gold-light hover:scale-110 transition-all duration-500 bg-dark/40">
                 <svg
-                  className="w-8 h-8 text-gold ml-1"
+                  className="w-10 h-10 text-gold ml-1"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -167,7 +167,7 @@ export default function VideoSection() {
               {/* Progress bar */}
               <div
                 ref={progressRef}
-                className="w-full h-1 bg-cream/20 cursor-pointer mb-4 group"
+                className="w-full h-1.5 bg-cream/30 cursor-pointer mb-4 group"
                 onClick={handleProgressClick}
               >
                 <div
@@ -179,7 +179,7 @@ export default function VideoSection() {
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-5">
                   {/* Play/Pause */}
                   <button
                     onClick={(e) => {
@@ -190,7 +190,7 @@ export default function VideoSection() {
                   >
                     {isPlaying ? (
                       <svg
-                        className="w-5 h-5"
+                        className="w-7 h-7"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -198,7 +198,7 @@ export default function VideoSection() {
                       </svg>
                     ) : (
                       <svg
-                        className="w-5 h-5"
+                        className="w-7 h-7"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -214,7 +214,7 @@ export default function VideoSection() {
                   >
                     {isMuted ? (
                       <svg
-                        className="w-5 h-5"
+                        className="w-7 h-7"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -222,7 +222,7 @@ export default function VideoSection() {
                       </svg>
                     ) : (
                       <svg
-                        className="w-5 h-5"
+                        className="w-7 h-7"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -232,7 +232,7 @@ export default function VideoSection() {
                   </button>
 
                   {/* Time */}
-                  <span className="text-xs text-gold/70 tracking-wider tabular-nums">
+                  <span className="text-sm text-gold tracking-wider tabular-nums">
                     {formatTime(currentTime)} / {formatTime(duration)}
                   </span>
                 </div>
@@ -244,7 +244,7 @@ export default function VideoSection() {
                 >
                   {isFullscreen ? (
                     <svg
-                      className="w-5 h-5"
+                      className="w-7 h-7"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -252,7 +252,7 @@ export default function VideoSection() {
                     </svg>
                   ) : (
                     <svg
-                      className="w-5 h-5"
+                      className="w-7 h-7"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >

@@ -60,10 +60,10 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-20">
             <a href="#" className="flex items-center gap-3">
               <Image
-                src="/images/logo.png"
+                src="/images/logo-vek.png"
                 alt="VEK"
-                width={40}
-                height={40}
+                width={64}
+                height={64}
                 className="brightness-0 invert"
               />
               <span className="font-serif text-lg tracking-[0.2em] text-cream hidden sm:block">

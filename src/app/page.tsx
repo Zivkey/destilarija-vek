@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import QuoteSection from "@/components/QuoteSection";
 import Production from "@/components/Production";
+import VideoSection from "@/components/VideoSection";
 import Products from "@/components/Products";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -55,6 +56,7 @@ export default function Home() {
         <About />
         <QuoteSection />
         <Production />
+        <VideoSection />
         <Products />
         <Contact />
       </main>

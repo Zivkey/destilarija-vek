@@ -17,7 +17,7 @@ export default function Contact() {
     e.preventDefault();
     const subject = encodeURIComponent("Porudžbina - Destilerija VEK");
     const body = encodeURIComponent(
-      `Ime: ${formData.name}\nEmail: ${formData.email}\nTelefon: ${formData.phone}\nAdresa: ${formData.address}\nProizvod: VEK ${formData.product === "standard" ? "Standard (6.500 RSD)" : "Premium (9.500 RSD)"}\nKoličina: ${formData.quantity}`
+      `Ime: ${formData.name}\nEmail: ${formData.email}\nTelefon: ${formData.phone}\nAdresa: ${formData.address}\nProizvod: VEK ${formData.product === "standard" ? "Standard (RSD 6.500)" : "Premium (RSD 9.500)"}\nKoličina: ${formData.quantity}`
     );
     window.location.href = `mailto:info@destilerijavek.rs?subject=${subject}&body=${body}`;
   };
@@ -40,7 +40,7 @@ export default function Contact() {
               Kontaktirajte nas
             </h2>
             <div className="gold-line mb-8" />
-            <p className="text-cream/50 leading-relaxed mb-12">
+            <p className="text-cream/85 leading-relaxed mb-12">
               Poručite direktno od nas ili nas kontaktirajte za sve informacije
               o našim proizvodima.
             </p>
@@ -50,7 +50,7 @@ export default function Contact() {
                 <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
                   Adresa
                 </p>
-                <p className="text-cream/70">Drvarska 4/19, 18000 Niš</p>
+                <p className="text-cream/85">Drvarska 4/19, 18000 Niš</p>
               </div>
               <div>
                 <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
@@ -58,7 +58,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:info@destilerijavek.rs"
-                  className="text-cream/70 hover:text-gold transition-colors"
+                  className="text-cream/85 hover:text-gold transition-colors"
                 >
                   info@destilerijavek.rs
                 </a>
@@ -72,7 +72,7 @@ export default function Contact() {
                     href="https://facebook.com/profile.php?id=61581816304562"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cream/50 hover:text-gold transition-colors text-sm tracking-wider"
+                    className="text-cream/85 hover:text-gold transition-colors text-sm tracking-wider"
                   >
                     Facebook
                   </a>
@@ -80,7 +80,7 @@ export default function Contact() {
                     href="https://instagram.com/destilerija.vek"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cream/50 hover:text-gold transition-colors text-sm tracking-wider"
+                    className="text-cream/85 hover:text-gold transition-colors text-sm tracking-wider"
                   >
                     Instagram
                   </a>
@@ -98,7 +98,7 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                   Ime i prezime
                 </label>
                 <input
@@ -114,7 +114,7 @@ export default function Contact() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                  <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Email
                   </label>
                   <input
@@ -128,7 +128,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                  <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Telefon
                   </label>
                   <input
@@ -144,7 +144,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                   Adresa za dostavu
                 </label>
                 <input
@@ -160,7 +160,7 @@ export default function Contact() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                  <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Proizvod
                   </label>
                   <select
@@ -171,15 +171,15 @@ export default function Contact() {
                     className="w-full bg-transparent border-b border-cream/20 py-3 text-cream focus:border-gold outline-none transition-colors appearance-none cursor-pointer"
                   >
                     <option value="standard" className="bg-dark">
-                      Standard — 6.500 RSD
+                      Standard — RSD 6.500
                     </option>
                     <option value="premium" className="bg-dark">
-                      Premium — 9.500 RSD
+                      Premium — RSD 9.500
                     </option>
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs tracking-[0.2em] uppercase text-cream/40 block mb-2">
+                  <label className="text-xs tracking-[0.2em] uppercase text-cream/60 block mb-2">
                     Količina
                   </label>
                   <select

@@ -11,95 +11,201 @@ export default function About() {
   return (
     <section id="o-nama" className="relative py-32 lg:py-40 noise-overlay">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Images */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1 }}
-            className="relative"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src="/images/onama-01-full.jpg"
-                alt="Destilerija VEK - Porodica"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
-            </div>
-            {/* Floating accent image */}
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <p className="text-xs tracking-[0.4em] uppercase text-gold mb-4">
+            Naša priča
+          </p>
+          <h2 className="font-serif text-4xl lg:text-5xl text-cream mb-6 leading-tight">
+            O nama
+          </h2>
+          <div className="gold-line-wide mx-auto" />
+        </motion.div>
+
+        <div ref={ref}>
+          {/* Part 1: Images left, text right */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-32">
+            {/* Images - two staggered */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="absolute -bottom-8 -right-8 w-48 h-48 border border-gold/20 p-2 bg-dark hidden lg:block"
+              initial={{ opacity: 0, x: -60 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1 }}
+              className="flex gap-4 items-end"
             >
-              <div className="relative w-full h-full overflow-hidden">
+              <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/proizvodnja01-full.jpg"
-                  alt="Proizvodnja"
+                  src="/images/onama-01-full.jpg"
+                  alt="Destilerija VEK - Porodica"
                   fill
                   className="object-cover"
-                  sizes="200px"
+                  sizes="(max-width: 1024px) 55vw, 28vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+              </div>
+              <div className="w-[38%] flex flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="relative aspect-square overflow-hidden"
+                >
+                  <Image
+                    src="/images/onama-kutija.jpg"
+                    alt="VEK premium kutija"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 25vw, 14vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="relative aspect-[3/4] overflow-hidden"
+                >
+                  <Image
+                    src="/images/onama-porodica.jpg"
+                    alt="Destilerija VEK"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 35vw, 18vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+                </motion.div>
               </div>
             </motion.div>
-            {/* Gold corner accent */}
-            <div className="absolute -top-4 -left-4 w-16 h-16 border-t border-l border-gold/30" />
-          </motion.div>
 
-          {/* Text */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <p className="text-xs tracking-[0.4em] uppercase text-gold mb-4">
-              Naša priča
-            </p>
-            <h2 className="font-serif text-4xl lg:text-5xl text-cream mb-8 leading-tight">
-              O nama
-            </h2>
-            <div className="gold-line mb-8" />
-            <p className="text-cream/60 leading-relaxed mb-6 text-base">
-              Destilerija VEK osnovana je na jednostavnoj ideji — stvaranja trajne
-              vrednosti. Porodični smo tim od pet ljudi — troje dece, žena i muškarac
-              koji predvodi — verujemo da se trajne vrednosti stvaraju, a ne nasleđuju.
-            </p>
-            <p className="text-cream/60 leading-relaxed mb-6 text-base">
-              U svetu koji žuri, mi smo izabrali da usporimo. Da svakom plodu, svakom
-              mirisu, svakom trenutku posvetimo pažnju koju zaslužuje.
-            </p>
-            <p className="text-cream/60 leading-relaxed text-base">
-              Naša premium šljivovica je čista, elegantna i profinjena — destilovana sa
-              preciznošću i starana pod kontrolisanim uslovima.
-            </p>
+            {/* Text - first half */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                Destilerija VEK nastala je iz jednostavne ideje – da ono što stvaramo danas,
+                ima svoj smisao i sutra. Vekovima. Iza destilerije stojimo nas petoro – troje
+                dece i žena, na čelu sa mužem, porodica koja veruje da se trajne vrednosti ne
+                nasleđuju, već stvaraju.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                U svetu koji žuri, mi smo odlučili da usporimo.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                Da svakom plodu, svakom mirisu i svakom trenutku damo pažnju koju zaslužuje.
+                Upravo tako je i nastala naša premium rakija od šljiva – čista, elegantna i
+                prefinjena, destilisana sa najvećom preciznošću i odležavana pod pažljivo
+                kontrolisanim uslovima.
+              </p>
+              <p className="text-cream/80 leading-relaxed text-base">
+                Svaka kap odražava našu posvećenost savršenstvu i standardima koji ne poznaju
+                kompromis. Za nas, kvalitet nije samo rezultat procesa – to je način života.
+              </p>
+            </motion.div>
+          </div>
 
-            <div className="mt-10 flex items-center gap-6">
-              <div className="text-center">
-                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>5+</p>
-                <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
-                  Godina starenja
-                </p>
+          {/* Part 2: Text left, images right */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Text - second half */}
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="order-2 lg:order-1"
+            >
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                Isti principi koji nas vode kao porodicu, vode nas i u poslu: poštenje,
+                doslednost i nepokolebljiva želja da svaka sledeća boca bude još bolja od
+                prethodne.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                Naziv destilerije nosi ime naše dece – V(Vuk), E(Eva) i K(Klara). U njima je
+                smisao našeg stvaranja i tiha snaga trajanja koje dolazi.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                Zato VEK nije samo ime našeg brenda, već i naš lični pečat – znak da ništa ne
+                napušta naše ruke dok ne dostigne nivo koji sami živimo i poštujemo.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-6 text-base">
+                VEK je spoj rada i ljubavi, discipline i nežnosti, jednostavnosti i ozbiljnosti.
+                Prostor u kojem porodica postaje tim, a stvaranje postaje način života.
+                Iz svake boce izlazi ono što najviše cenimo – vreme, posvećenost, kvalitet i
+                međusobno poverenje.
+              </p>
+              <div className="gold-line my-8" />
+              <p className="text-cream/90 leading-relaxed mb-4 text-lg font-serif italic">
+                Tradiciju ne nastavljamo. Mi je stvaramo.
+              </p>
+              <p className="text-cream/80 leading-relaxed mb-4 text-base">
+                Za nas, VEK nije samo rakija. To je ime našeg puta, naše vizije i našeg
+                zajedništva.
+              </p>
+              <p className="text-cream/80 leading-relaxed text-base">
+                Naš potpis – sada i za VEKove koji dolaze.
+              </p>
+            </motion.div>
+
+            {/* Images - puzzle layout */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="flex gap-4 items-end order-1 lg:order-2"
+            >
+              <div className="w-[38%] flex flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="relative aspect-[3/4] overflow-hidden"
+                >
+                  <Image
+                    src="/images/onama-casa-crvena.jpg"
+                    alt="VEK rakija - čaša"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 35vw, 18vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="relative aspect-square overflow-hidden"
+                >
+                  <Image
+                    src="/images/onama-casa-zavesa.jpg"
+                    alt="VEK rakija - elegancija"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 25vw, 14vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
+                </motion.div>
               </div>
-              <div className="w-px h-12 bg-gold/20" />
-              <div className="text-center">
-                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>100%</p>
-                <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
-                  Prirodno
-                </p>
+              <div className="w-[60%] relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/onama-casa-senka.jpg"
+                  alt="VEK rakija - degustacija"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 55vw, 28vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
               </div>
-              <div className="w-px h-12 bg-gold/20" />
-              <div className="text-center">
-                <p className="font-serif text-3xl text-gold" style={{ fontFeatureSettings: '"lnum"' }}>1</p>
-                <p className="text-xs tracking-wider text-cream/40 mt-1 uppercase">
-                  Bačva po flaši
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

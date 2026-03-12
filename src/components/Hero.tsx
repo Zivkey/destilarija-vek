@@ -1,13 +1,26 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useAgeVerified } from "./AgeContext";
+
+const heroImages = [
+  "/images/onama-02-full.jpg",
+  "/images/hero-vocnjak.jpg",
+  "/images/velika.jpg",
+];
+
+const SLIDE_DURATION = 6000;
 
 export default function Hero() {
   const verified = useAgeVerified();
   const ref = useRef(null);
+  const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout>(null);
+  const startTimeRef = useRef<number>(Date.now());
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -17,63 +30,89 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+    setProgress(0);
+    startTimeRef.current = Date.now();
+  }, []);
+
+  const next = useCallback(() => {
+    goTo((current + 1) % heroImages.length);
+  }, [current, goTo]);
+
+  const prev = useCallback(() => {
+    goTo((current - 1 + heroImages.length) % heroImages.length);
+  }, [current, goTo]);
+
+  // Auto-advance
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent((c) => {
+        const nextIdx = (c + 1) % heroImages.length;
+        setProgress(0);
+        startTimeRef.current = Date.now();
+        return nextIdx;
+      });
+    }, SLIDE_DURATION);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [current]);
+
+  // Progress animation
+  useEffect(() => {
+    let raf: number;
+    function tick() {
+      const elapsed = Date.now() - startTimeRef.current;
+      setProgress(Math.min(elapsed / SLIDE_DURATION, 1));
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [current]);
+
   return (
     <section ref={ref} className="relative h-screen overflow-hidden">
-      {/* Background image with parallax */}
+      {/* Background images with crossfade */}
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <Image
-          src="/images/onama-02-full.jpg"
-          alt="Destilerija VEK"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={heroImages[current]}
+              alt="Destilerija VEK"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
         <div className="hero-overlay absolute inset-0" />
       </motion.div>
 
-      {/* Content - only animate after age verification */}
+      {/* Content */}
       {verified && (
         <motion.div
           style={{ opacity }}
           className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <p className="text-xs tracking-[0.4em] uppercase text-gold mb-6">
-              Est. Srbija
-            </p>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream mb-6 leading-[0.95]"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cream mb-6 leading-[0.95] italic"
           >
-            Destilerija
+            Pijemo danas,
             <br />
-            <span className="text-gradient-gold">VEK</span>
+            <span className="text-gradient-gold">pamtimo vekovima</span>
           </motion.h1>
-
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="h-px bg-gold mb-6"
-          />
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.4 }}
-            className="font-serif text-lg sm:text-xl text-cream/70 italic max-w-lg"
-          >
-            Pijemo danas, pamtimo vekovima
-          </motion.p>
 
           <motion.a
             initial={{ opacity: 0, y: 20 }}
@@ -104,20 +143,59 @@ export default function Hero() {
             Otkrijte više
           </motion.a>
 
-          {/* Scroll indicator */}
+          {/* Progress dots */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5 }}
-            className="absolute bottom-10"
+            className="absolute bottom-10 flex items-center gap-3"
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-px h-12 bg-gradient-to-b from-gold/60 to-transparent mx-auto"
-            />
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className="relative w-8 h-px bg-cream/20 overflow-hidden"
+                aria-label={`Slika ${i + 1}`}
+              >
+                <div
+                  className="absolute inset-y-0 left-0 bg-gold transition-none"
+                  style={{
+                    width: i === current ? `${progress * 100}%` : i < current ? "100%" : "0%",
+                  }}
+                />
+              </button>
+            ))}
           </motion.div>
         </motion.div>
+      )}
+      {/* Side arrows */}
+      {verified && (
+        <>
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.5 }}
+            onClick={prev}
+            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 text-cream/25 hover:text-gold transition-colors"
+            aria-label="Prethodna slika"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </motion.button>
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.5 }}
+            onClick={next}
+            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 text-cream/25 hover:text-gold transition-colors"
+            aria-label="Sledeća slika"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </motion.button>
+        </>
       )}
     </section>
   );

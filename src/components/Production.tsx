@@ -58,99 +58,53 @@ export default function Production() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Text */}
+          {/* Text - left column */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-cream/60 leading-relaxed mb-8 text-base">
-              Gajimo sopstvene voćnjake šljiva na južnim padinama Srbije. Svaka
-              sorta doprinosi jedinstven karakter — od nežne slatkoće i bogatog
-              mirisa do čvrstine i punog ukusa.
+            <p className="text-cream/80 leading-relaxed mb-6 text-base">
+              Na prostranim padinama južne Srbije negujemo sopstvene zasade šljiva – crvene
+              ranke, čačanske rodne, čačanske lepotice i valjevke. Svaka sorta unosi svoj
+              jedinstveni karakter u našu rakiju: od nežne slasti i bogate arome, do čvrstine
+              i punoće ukusa po kojoj je naša rakija prepoznatljiva.
             </p>
-            <p className="text-cream/60 leading-relaxed mb-12 text-base">
-              Pažljivo biramo trenutak berbe, kada je svaki plod na vrhuncu
-              zrelosti. Destilacija se odvija u bakarnim kazanima, poštujući
-              tradiciju uz preciznu kontrolu temperature.
+            <p className="text-cream/80 leading-relaxed mb-6 text-base">
+              Berba je ritual. Obavlja se ručno, u prvim časovima dana, kada plod dostiže punu
+              zrelost i mirisom najavi svoju spremnost. Samo savršeno zdrave šljive dospevaju
+              u proces, jer od prvog dodira do poslednje kapi, ništa se ne prepušta slučaju.
             </p>
-
-            {/* Plum varieties */}
-            <div className="space-y-6">
-              <p className="text-xs tracking-[0.3em] uppercase text-gold">
-                Sorte šljiva
-              </p>
-              {plumVarieties.map((variety, i) => (
-                <motion.div
-                  key={variety.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-2 h-2 rotate-45 border border-gold/50 group-hover:bg-gold transition-colors duration-300" />
-                  <div>
-                    <p className="text-cream text-sm font-medium">
-                      {variety.name}
-                    </p>
-                    <p className="text-cream/40 text-xs">{variety.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <p className="text-cream/80 leading-relaxed text-base">
+              Fermentacija teče polako, prirodno, u kontrolisanim uslovima koji čuvaju
+              autentičnu aromu voća. Destilacija se odvija dvostruko – tiho, pažljivo i s
+              merom. U bakarnim kazanima, pod budnim okom majstora, rađa se rakija izuzetne
+              čistoće i fine strukture.
+            </p>
           </motion.div>
 
-          {/* Process steps */}
+          {/* Text - right column */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-12"
           >
-            {[
-              {
-                step: "01",
-                title: "Berba",
-                desc: "Ručna berba šljiva u optimalnom trenutku zrelosti sa naših voćnjaka na južnim padinama.",
-              },
-              {
-                step: "02",
-                title: "Destilacija",
-                desc: "Dvostruka destilacija u bakarnim kazanima uz preciznu kontrolu temperature i vremena.",
-              },
-              {
-                step: "03",
-                title: "Starenje",
-                desc: "Minimum pet godina u pažljivo odabranim hrastovim bačvama. Svaka bačva daje jedinstven karakter.",
-              },
-              {
-                step: "04",
-                title: "Flaširano",
-                desc: "Svaka flaša dolazi iz jedne jedinstvene hrastove bačve. Bačve se ne koriste ponovo.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
-                className="flex gap-6 group"
-              >
-                <div className="flex-shrink-0">
-                  <span className="font-serif text-3xl text-gold/30 group-hover:text-gold transition-colors duration-500" style={{ fontFeatureSettings: '"lnum"' }}>
-                    {item.step}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-serif text-xl text-cream mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-cream/50 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            <p className="text-cream/80 leading-relaxed mb-6 text-base">
+              Destilacija se vrši dvostrukim pečenjem, umereno i pažljivo, na tradicionalan
+              način koji se prenosi generacijama. Na taj način dobijamo rakiju izuzetne
+              čistoće, zaokruženog ukusa i plemenitog karaktera.
+            </p>
+            <p className="text-cream/80 leading-relaxed mb-6 text-base">
+              Svaka kap potom odležava u buradima od srpskog hrasta minimum 5 godina, gde
+              vreme, drvo i rakija stupaju u tihu, dugotrajnu igru. Hrast otkriva svoje tonove
+              vanile, meda i dima, dajući piću ćilibarnu nijansu i miris koji budi sva čula –
+              tako rakija stiče zlatnu boju, prefinjen miris i ukus koji traje.
+            </p>
+            <p className="text-cream/80 leading-relaxed text-base">
+              Rezultat je premium rakija – autentično srpsko piće, nastalo iz spoja prirode,
+              znanja i strpljenja, namenjeno onima koji prepoznaju istinsku vrednost u
+              jednostavnosti i dubini svakog gutljaja.
+            </p>
           </motion.div>
         </div>
       </div>

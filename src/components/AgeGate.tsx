@@ -30,7 +30,7 @@ export default function AgeGate() {
             className="text-center px-8 py-12 max-w-md"
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo-vek.png"
               alt="VEK Logo"
               width={80}
               height={80}
@@ -40,7 +40,7 @@ export default function AgeGate() {
             <h2 className="font-serif text-2xl text-cream mb-4">
               Dobrodošli
             </h2>
-            <p className="text-cream/60 text-sm mb-8 leading-relaxed">
+            <p className="text-cream/80 text-sm mb-8 leading-relaxed">
               Da li imate više od 18 godina?
             </p>
             <div className="flex gap-4 justify-center">
@@ -52,12 +52,12 @@ export default function AgeGate() {
               </button>
               <button
                 onClick={() => window.history.back()}
-                className="px-8 py-3 border border-cream/20 text-cream/60 text-sm tracking-widest uppercase hover:border-cream/40 transition-all duration-300 cursor-pointer"
+                className="px-8 py-3 border border-cream/20 text-cream/80 text-sm tracking-widest uppercase hover:border-cream/40 transition-all duration-300 cursor-pointer"
               >
                 Ne
               </button>
             </div>
-            <p className="text-cream/30 text-xs mt-8">
+            <p className="text-cream/50 text-xs mt-8">
               Ovaj sajt sadrži informacije o alkoholnim pićima.
             </p>
           </motion.div>

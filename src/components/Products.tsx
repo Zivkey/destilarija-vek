@@ -7,7 +7,7 @@ import Image from "next/image";
 const products = [
   {
     name: "Standard",
-    price: "6.500 RSD",
+    price: "RSD 6.500",
     image: "/images/manja.jpg",
     description:
       "Čista šljivovica starana minimum pet godina u hrastovim bačvama. Elegantan i profinjen ukus sa notama suvog voća i vanile.",
@@ -15,11 +15,11 @@ const products = [
   },
   {
     name: "Premium",
-    price: "9.500 RSD",
+    price: "RSD 9.500",
     image: "/images/veca.jpg",
     description:
-      "Naša najfinija selekcija. Svaka flaša iz jedne jedinstvene bačve — neponovljiv karakter i dubina ukusa bez premca.",
-    details: ["Single barrel", "Premium selekcija", "0.7L"],
+      "Rakija koja je minimum pet godina strpljivo sazrevala u pažljivo odabranim hrastovim buradima. Svaka boca potiče iz jednog, jedinstvenog hrastovog bureta — neponovljiv potpis, prirodni trag hrastovine, mikroklime i vremena.",
+    details: ["Single barrel", "Min. 5 godina", "0.7L"],
   },
 ];
 
@@ -45,10 +45,9 @@ export default function Products() {
             Premium Rakija VEK
           </h2>
           <div className="gold-line-wide mx-auto mb-8" />
-          <p className="text-cream/50 max-w-2xl mx-auto leading-relaxed">
-            Svaka flaša dolazi iz jedne jedinstvene hrastove bačve. Bačve se ne koriste
-            ponovo, čuvajući autentičnost i obezbeđujući da svaki single barrel zadrži
-            svoj poseban karakter.
+          <p className="text-cream/70 max-w-2xl mx-auto leading-relaxed">
+            Limitirane serije, proizvedene od pažljivo odabranih šljiva, dobijene potpuno
+            prirodnim procesom — bez dodataka, bez prečica, bez kompromisa.
           </p>
         </motion.div>
 
@@ -87,7 +86,7 @@ export default function Products() {
                 <h3 className="font-serif text-3xl text-cream mb-3">
                   VEK {product.name}
                 </h3>
-                <p className="text-cream/50 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
+                <p className="text-cream/70 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
                   {product.description}
                 </p>
 
@@ -96,7 +95,7 @@ export default function Products() {
                   {product.details.map((detail) => (
                     <span
                       key={detail}
-                      className="text-xs text-cream/40 tracking-wider"
+                      className="text-xs text-cream/60 tracking-wider"
                     >
                       {detail}
                     </span>
@@ -112,6 +111,60 @@ export default function Products() {
             </motion.div>
           ))}
         </div>
+
+        {/* Premium story */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-24 max-w-3xl mx-auto text-center"
+        >
+          <div className="gold-line mx-auto mb-10" />
+          <p className="text-cream/80 leading-relaxed mb-6 text-base">
+            Kada bure odsluži svoje, ono se ne koristi ponovo. Time čuvamo autentičnost
+            zrenja i osiguravamo da svaki single barrel zadrži svoj neponovljiv potpis,
+            prirodni trag hrastovine, mikroklime i vremena. Zato je svaka flaša
+            dragocenost sama za sebe.
+          </p>
+          <p className="text-cream/80 leading-relaxed mb-6 text-base">
+            Ona nosi u sebi godine strpljenja, preciznost i umeće stvaranja proizvoda
+            koji u potpunosti poštuje ono što priroda daje. Ovo nije rakija koju može
+            imati svako. Ovo je privilegija rezervisana za one koji prepoznaju vrednost
+            neponovljivog i autentičnog.
+          </p>
+          <p className="text-cream/90 leading-relaxed mb-10 text-lg font-serif italic">
+            Dobrodošli u svet u kojem je kvalitet bezuslovan, proces potpuno prirodan,
+            a luksuz pažljivo očuvan za odabrane.
+          </p>
+          <div className="gold-line mx-auto mb-10" />
+          <div className="text-cream/60 text-sm leading-relaxed space-y-2">
+            <p>
+              Premium rakija destilerije VEK biće dostupna na zvaničnom sajtu destilerije,
+              kao i na jedinom prodajnom mestu u Nišu —{" "}
+              <a
+                href="https://egoconceptstore.rs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-light transition-colors underline underline-offset-2"
+              >
+                &ldquo;EGO&rdquo; concept store
+              </a>.
+            </p>
+            <p>
+              Takođe, biće dostupna i za degustaciju u restoranima{" "}
+              <a
+                href="https://www.restoranstambolijski.rs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-light transition-colors underline underline-offset-2"
+              >
+                &ldquo;Stambolijski&rdquo;
+              </a>
+              {" "}i &ldquo;Bocconcino&rdquo; u Nišu, kao i u odabranim restoranima u Beogradu.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
