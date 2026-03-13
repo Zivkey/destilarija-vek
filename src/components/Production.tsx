@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { TreeDeciduous, FlaskConical, Droplets, Barrel } from "lucide-react";
 
 export default function Production() {
   const ref = useRef(null);
@@ -128,6 +129,132 @@ export default function Production() {
             </p>
           </motion.div>
         </div>
+
+        {/* Process Steps */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-32"
+        >
+          <p className="text-center text-xs tracking-[0.4em] uppercase text-gold mb-4">
+            Proces
+          </p>
+          <h3 className="text-center font-serif text-3xl lg:text-4xl text-cream mb-16">
+            Put do savršene rakije
+          </h3>
+
+          {(() => {
+            const steps = [
+              {
+                step: "01",
+                title: "Gajenje",
+                desc: "Sopstveni zasadi šljiva na padinama južne Srbije",
+                icon: <TreeDeciduous className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />,
+              },
+              {
+                step: "02",
+                title: "Berba",
+                desc: "Ručna berba u ranim jutarnjim satima, samo savršeni plodovi",
+                icon: (
+                  // Custom šljiva ikonica u Lucide stilu
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 lg:w-7 lg:h-7">
+                    <path d="M12 5c-3 0-6 3-6 7.5S9 21 12 21s6-4 6-8.5S15 5 12 5z" />
+                    <path d="M12 5V3" />
+                    <path d="M12 3c1.5 0 3 .5 4 1.5" />
+                    <path d="M12 5c0 4 0 8 0 12" />
+                  </svg>
+                ),
+              },
+              {
+                step: "03",
+                title: "Fermentacija",
+                desc: "Prirodna fermentacija u kontrolisanim uslovima",
+                icon: <FlaskConical className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />,
+              },
+              {
+                step: "04",
+                title: "Destilacija",
+                desc: "Dvostruko pečenje u bakarnim kazanima",
+                icon: <Droplets className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />,
+              },
+              {
+                step: "05",
+                title: "Odležavanje",
+                desc: "Minimum 5 godina u buradima od srpskog hrasta",
+                icon: <Barrel className="w-5 h-5 lg:w-7 lg:h-7" strokeWidth={1.5} />,
+              },
+            ];
+
+            return (
+              <>
+                {/* Mobile: Vertical timeline */}
+                <div className="lg:hidden relative pl-16">
+                  {/* Vertical line - from first to last circle center (bottom accounts for text below last circle) */}
+                  <div className="absolute left-[23px] top-[23px] bottom-[85px] w-px bg-gold/30" />
+
+                  <div className="flex flex-col gap-10">
+                    {steps.map((item, i) => (
+                      <motion.div
+                        key={item.step}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                        className="relative flex items-start"
+                      >
+                        {/* Circle on the line */}
+                        <div className="absolute -left-16 top-0 w-[46px] h-[46px] rounded-full border border-gold/40 flex items-center justify-center text-gold bg-dark z-10 shrink-0">
+                          {item.icon}
+                        </div>
+                        <div className="pt-1">
+                          <div className="flex items-baseline gap-3 mb-1.5">
+                            <span className="text-gold/50 text-[10px] tracking-[0.3em] font-mono">
+                              {item.step}
+                            </span>
+                            <h4 className="font-serif text-cream text-lg">{item.title}</h4>
+                          </div>
+                          <p className="text-cream/50 text-sm leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Desktop: Horizontal row */}
+                <div className="hidden lg:block relative">
+                  <div className="absolute top-10 left-[10%] right-[10%] h-px bg-gold/30" />
+                  <div className="grid grid-cols-5 gap-6">
+                    {steps.map((item, i) => (
+                      <motion.div
+                        key={item.step}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.15 }}
+                        className="flex flex-col items-center text-center"
+                      >
+                        <div className="w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center text-gold mb-5 bg-dark relative z-10">
+                          {item.icon}
+                        </div>
+                        <span className="text-gold/60 text-xs tracking-[0.3em] font-mono mb-2">
+                          {item.step}
+                        </span>
+                        <h4 className="font-serif text-cream text-lg mb-2">{item.title}</h4>
+                        <p className="text-cream/60 text-sm leading-relaxed max-w-[200px]">
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
+        </motion.div>
       </div>
     </section>
   );

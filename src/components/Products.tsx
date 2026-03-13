@@ -77,7 +77,7 @@ export default function Products() {
             neponovljivog i autentičnog.
           </p>
           <p className="text-cream/90 leading-relaxed text-lg font-serif italic">
-            Dobrodošli u svet u kojem je kvalitet bezuslovan, proces potpuno prirodan,
+            Dobro došli u svet u kojem je kvalitet bezuslovan, proces potpuno prirodan,
             a luksuz pažljivo očuvan za odabrane.
           </p>
         </motion.div>
