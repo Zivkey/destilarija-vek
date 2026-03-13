@@ -163,16 +163,18 @@ export default function Products() {
               href="https://egoconceptstore.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 group"
+              className="flex flex-col items-center group"
             >
-              <Image
-                src="/images/logo-ego.png"
-                alt="EGO concept store"
-                width={100}
-                height={40}
-                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
-              />
+              <div className="h-[70px] flex items-center justify-center mb-3">
+                <Image
+                  src="/images/logo-ego.png"
+                  alt="EGO concept store"
+                  width={140}
+                  height={56}
+                  className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
+                />
+              </div>
               <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
                 EGO Concept Store
               </span>
@@ -181,15 +183,17 @@ export default function Products() {
               href="https://www.restoranstambolijski.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 group"
+              className="flex flex-col items-center group"
             >
-              <Image
-                src="/images/logo-stambolijski.png"
-                alt="Restoran Stambolijski"
-                width={40}
-                height={40}
-                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-              />
+              <div className="h-[70px] flex items-center justify-center mb-3">
+                <Image
+                  src="/images/logo-stambolijski.png"
+                  alt="Restoran Stambolijski"
+                  width={56}
+                  height={56}
+                  className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
               <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
                 Restoran Stambolijski
               </span>
@@ -198,18 +202,41 @@ export default function Products() {
               href="https://bocconcino.rs"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 group"
+              className="flex flex-col items-center group"
             >
-              <Image
-                src="/images/logo-bocconcino.png"
-                alt="Restoran Bocconcino"
-                width={120}
-                height={30}
-                className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
-              />
+              <div className="h-[70px] flex items-center justify-center mb-3">
+                <Image
+                  src="/images/logo-bocconcino.png"
+                  alt="Restoran Bocconcino"
+                  width={160}
+                  height={40}
+                  className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
+                />
+              </div>
               <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
                 Restoran Bocconcino
+              </span>
+            </a>
+            <a
+              href="https://www.tripadvisor.com/Restaurant_Review-g295382-d4307898-Reviews-Kod_Rajka-Nis_Central_Serbia.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center group"
+            >
+              <div className="h-[70px] flex items-center justify-center mb-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/Kod Rajka logo (1).svg"
+                  alt="Kafana Kod Rajka"
+                  width={160}
+                  height={70}
+                  className="opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(30%) saturate(700%) hue-rotate(5deg) brightness(90%)" }}
+                />
+              </div>
+              <span className="text-cream/50 group-hover:text-gold transition-colors text-xs tracking-wider">
+                Kafana Kod Rajka
               </span>
             </a>
           </div>

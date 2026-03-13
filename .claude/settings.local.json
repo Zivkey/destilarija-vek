@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:destilerijavek.rs)",
+      "WebFetch(domain:www.thedalmore.com)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(npm run:*)",
+      "Bash(taskkill:*)",
+      "Bash(gh auth:*)",
+      "Bash(where gh:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(ls -la public/images/*.jpg)",
+      "Bash(identify public/images/hero-pocetna.jpg public/images/hero-vocnjak.jpg public/images/onama-02-full.jpg public/images/onama-porodica.jpg public/images/onama-casa-senka.jpg public/images/mala.jpg public/images/velika.jpg public/images/proizvodnja-sljive.jpg)",
+      "Bash(python -c \":*)",
+      "Bash(node -e \":*)",
+      "Bash(git commit:*)",
+      "Bash(npm ls:*)",
+      "WebFetch(domain:www.facebook.com)",
+      "WebSearch",
+      "WebFetch(domain:kafanakodrajka.rs)",
+      "WebFetch(domain:www.tripadvisor.com)",
+      "Bash(magick --version)",
+      "Bash(npx --yes pdf-to-img --version)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python -c \"from pdf2image import convert_from_path; print\\(''ok''\\)\")",
+      "Bash(node -e \"const sharp = require\\(''sharp''\\); console.log\\(''sharp available''\\);\")"
+    ]
+  }
+}
