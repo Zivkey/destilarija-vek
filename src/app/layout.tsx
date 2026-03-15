@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Destilerija VEK | Premium Srpska Rakija",
   description:
-    "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
+    "Pijemo danas, pamtimo VEKovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
   keywords:
     "rakija, šljivovica, premium, destilerija, Srbija, VEK, hrastove bačve",
   alternates: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Destilerija VEK | Premium Srpska Rakija",
     description:
-      "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
+      "Pijemo danas, pamtimo VEKovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
     url: SITE_URL,
     siteName: "Destilerija VEK",
     locale: "sr_RS",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Destilerija VEK | Premium Srpska Rakija",
     description:
-      "Pijemo danas, pamtimo vekovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
+      "Pijemo danas, pamtimo VEKovima. Premium šljivovica destilerisana sa strašću i starana u hrastovim bačvama minimum pet godina.",
     images: ["/images/onama-01-full.jpg"],
   },
 };

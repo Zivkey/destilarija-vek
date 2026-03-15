@@ -155,7 +155,7 @@ export default function Hero() {
           >
             Pijemo danas,
             <br />
-            <span className="text-gradient-gold">pamtimo vekovima</span>
+            <span className="text-gradient-gold">pamtimo VEKovima</span>
           </motion.h1>
 
           <motion.a

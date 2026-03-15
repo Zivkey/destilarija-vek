@@ -23,7 +23,9 @@ const jsonLd = {
   logo: "https://destilerijavek.rs/images/logo.png",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Niš",
+    streetAddress: "Donjovlaška 160",
+    addressLocality: "Donje Vlase, Niš",
+    postalCode: "18000",
     addressRegion: "Nišavski okrug",
     addressCountry: "RS",
   },

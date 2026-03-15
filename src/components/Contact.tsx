@@ -12,14 +12,28 @@ export default function Contact() {
     product: "standard",
     quantity: "1",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Porudžbina - Destilerija VEK");
-    const body = encodeURIComponent(
-      `Ime: ${formData.name}\nEmail: ${formData.email}\nTelefon: ${formData.phone}\nAdresa: ${formData.address}\nProizvod: VEK ${formData.product === "standard" ? "Standard (RSD 6.500)" : "Premium (RSD 9.500)"}\nKoličina: ${formData.quantity}`
-    );
-    window.location.href = `mailto:info@destilerijavek.rs?subject=${subject}&body=${body}`;
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", phone: "", address: "", product: "standard", quantity: "1" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -48,9 +62,9 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
-                  Adresa
+                  Sedište
                 </p>
-                <p className="text-cream/85">Drvarska 4/19, 18000 Niš</p>
+                <p className="text-cream/85">Donjovlaška 160, 18000, Donje Vlase, Niš, Srbija</p>
               </div>
               <div>
                 <p className="text-xs tracking-[0.3em] uppercase text-gold/60 mb-2">
@@ -200,10 +214,22 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="mt-4 w-full py-4 bg-gold text-dark font-medium text-xs tracking-[0.3em] uppercase hover:bg-gold-light transition-all duration-500"
+                disabled={status === "sending"}
+                className="mt-4 w-full py-4 bg-gold text-dark font-medium text-xs tracking-[0.3em] uppercase hover:bg-gold-light transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Pošaljite porudžbinu
+                {status === "sending" ? "Šalje se..." : "Pošaljite porudžbinu"}
               </button>
+
+              {status === "sent" && (
+                <p className="text-green-400 text-sm text-center mt-4">
+                  Porudžbina je uspešno poslata! Javićemo vam se uskoro.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-400 text-sm text-center mt-4">
+                  Došlo je do greške. Pokušajte ponovo ili nas kontaktirajte direktno.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>

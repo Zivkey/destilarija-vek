@@ -93,7 +93,7 @@ export default function About() {
             >
               <p className="text-cream/80 leading-relaxed mb-6 text-base">
                 Destilerija VEK nastala je iz jednostavne ideje – da ono što stvaramo danas,
-                ima svoj smisao i sutra. Vekovima. Iza destilerije stojimo nas petoro – troje
+                ima svoj smisao i sutra. VEKovima. Iza destilerije stojimo nas petoro – troje
                 dece i žena, na čelu sa mužem, porodica koja veruje da se trajne vrednosti ne
                 nasleđuju, već stvaraju.
               </p>

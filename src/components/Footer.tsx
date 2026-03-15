@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
 
           <p className="text-cream/50 text-xs tracking-wider text-center">
-            Pijemo danas, pamtimo vekovima
+            Pijemo danas, pamtimo VEKovima
           </p>
 
           <div className="flex gap-8">
