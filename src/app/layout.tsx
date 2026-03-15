@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   icons: {
+    icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
