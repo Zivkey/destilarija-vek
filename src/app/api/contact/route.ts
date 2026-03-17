@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         : "VEK Premium (RSD 9.500)";
 
     const { error } = await resend.emails.send({
-      from: "Destilerija VEK <onboarding@resend.dev>",
+      from: "Destilerija VEK <forma@destilerijavek.rs>",
       to: "destilerijavek@gmail.com",
       subject: `Nova porudžbina - ${name}`,
       html: `
